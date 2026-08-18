@@ -21,7 +21,7 @@ export async function getStaticPaths() {
     .find({}, { projection: { _id: 1 } })
     .toArray();
   return {
-    fallback: false,
+    fallback: "blocking",
     paths: meetupsId.map((meetup) => ({
       params: {
         meetupid: meetup._id.toString(),
